@@ -6,3 +6,4 @@ torchvision<=0.18.0
 tqdm<5.0.0
 matplotlib<4.0.0
 faiss-cpu
+facenet-pytorch 
