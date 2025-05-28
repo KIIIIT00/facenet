@@ -1,3 +1,4 @@
 *.zip
 facenet/*
 input/*
+face_recognition_results/visualization/*
