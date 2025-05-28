@@ -1,0 +1,467 @@
+============================================================
+Face Recognition Experiment Started: 2025-05-28 22:20:25.358222
+============================================================
+Total files: 2562
+Train files: 1281
+Test files: 1281
+Number of unique people: 31
+
+Extracting embeddings from training data...
+Building FAISS index...
+Index built successfully!
+
+Starting face recognition test...
+
+Test #1 (Index: 0)
+label= 11 Claire Holt
+file= ./input/Original Images/Claire Holt/Claire Holt_76.jpg
+  Rank 1: distance = 0.758970, index = 11, name = Claire Holt, ---OK
+  Rank 2: distance = 0.757114, index = 11, name = Claire Holt, ---OK
+  Rank 3: distance = 0.756663, index = 11, name = Claire Holt, ---OK
+  Rank 4: distance = 0.756053, index = 11, name = Claire Holt, ---OK
+  Rank 5: distance = 0.755166, index = 11, name = Claire Holt, ---OK
+  Rank 6: distance = 0.754902, index = 11, name = Claire Holt, ---OK
+  Rank 7: distance = 0.754334, index = 11, name = Claire Holt, ---OK
+  Rank 8: distance = 0.754243, index = 11, name = Claire Holt, ---OK
+  Rank 9: distance = 0.754102, index = 11, name = Claire Holt, ---OK
+  Rank 10: distance = 0.749254, index = 11, name = Claire Holt, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #2 (Index: 50)
+label= 27 Hrithik Roshan
+file= ./input/Original Images/Hrithik Roshan/Hrithik Roshan_20.jpg
+  Rank 1: distance = 0.738185, index = 27, name = Hrithik Roshan, ---OK
+  Rank 2: distance = 0.733195, index = 27, name = Hrithik Roshan, ---OK
+  Rank 3: distance = 0.733065, index = 27, name = Hrithik Roshan, ---OK
+  Rank 4: distance = 0.729856, index = 27, name = Hrithik Roshan, ---OK
+  Rank 5: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Rank 6: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Rank 7: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Rank 8: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Rank 9: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Rank 10: distance = 0.729082, index = 27, name = Hrithik Roshan, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #3 (Index: 100)
+label= 26 Kashyap
+file= ./input/Original Images/Kashyap/Kashyap_26.jpg
+  Rank 1: distance = 0.561278, index = 26, name = Kashyap, ---OK
+  Rank 2: distance = 0.555522, index = 26, name = Kashyap, ---OK
+  Rank 3: distance = 0.546768, index = 26, name = Kashyap, ---OK
+  Rank 4: distance = 0.541761, index = 26, name = Kashyap, ---OK
+  Rank 5: distance = 0.540755, index = 26, name = Kashyap, ---OK
+  Rank 6: distance = 0.539928, index = 26, name = Kashyap, ---OK
+  Rank 7: distance = 0.530914, index = 26, name = Kashyap, ---OK
+  Rank 8: distance = 0.530002, index = 26, name = Kashyap, ---OK
+  Rank 9: distance = 0.527276, index = 26, name = Kashyap, ---OK
+  Rank 10: distance = 0.521275, index = 26, name = Kashyap, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #4 (Index: 150)
+label= 30 Jessica Alba
+file= ./input/Original Images/Jessica Alba/Jessica Alba_68.jpg
+  Rank 1: distance = 0.830638, index = 30, name = Jessica Alba, ---OK
+  Rank 2: distance = 0.823861, index = 30, name = Jessica Alba, ---OK
+  Rank 3: distance = 0.823402, index = 30, name = Jessica Alba, ---OK
+  Rank 4: distance = 0.820655, index = 30, name = Jessica Alba, ---OK
+  Rank 5: distance = 0.819172, index = 30, name = Jessica Alba, ---OK
+  Rank 6: distance = 0.819145, index = 30, name = Jessica Alba, ---OK
+  Rank 7: distance = 0.818726, index = 30, name = Jessica Alba, ---OK
+  Rank 8: distance = 0.816774, index = 30, name = Jessica Alba, ---OK
+  Rank 9: distance = 0.815502, index = 30, name = Jessica Alba, ---OK
+  Rank 10: distance = 0.815276, index = 30, name = Jessica Alba, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #5 (Index: 200)
+label= 30 Jessica Alba
+file= ./input/Original Images/Jessica Alba/Jessica Alba_74.jpg
+  Rank 1: distance = 0.698572, index = 30, name = Jessica Alba, ---OK
+  Rank 2: distance = 0.698122, index = 30, name = Jessica Alba, ---OK
+  Rank 3: distance = 0.673639, index = 30, name = Jessica Alba, ---OK
+  Rank 4: distance = 0.672376, index = 30, name = Jessica Alba, ---OK
+  Rank 5: distance = 0.672280, index = 30, name = Jessica Alba, ---OK
+  Rank 6: distance = 0.666764, index = 30, name = Jessica Alba, ---OK
+  Rank 7: distance = 0.664189, index = 30, name = Jessica Alba, ---OK
+  Rank 8: distance = 0.659508, index = 30, name = Jessica Alba, ---OK
+  Rank 9: distance = 0.658795, index = 30, name = Jessica Alba, ---OK
+  Rank 10: distance = 0.658519, index = 30, name = Jessica Alba, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #6 (Index: 250)
+label= 23 Roger Federer
+file= ./input/Original Images/Roger Federer/Roger Federer_44.jpg
+  Rank 1: distance = 0.761628, index = 23, name = Roger Federer, ---OK
+  Rank 2: distance = 0.756368, index = 23, name = Roger Federer, ---OK
+  Rank 3: distance = 0.755494, index = 23, name = Roger Federer, ---OK
+  Rank 4: distance = 0.751052, index = 23, name = Roger Federer, ---OK
+  Rank 5: distance = 0.750989, index = 23, name = Roger Federer, ---OK
+  Rank 6: distance = 0.750017, index = 23, name = Roger Federer, ---OK
+  Rank 7: distance = 0.749715, index = 23, name = Roger Federer, ---OK
+  Rank 8: distance = 0.749685, index = 23, name = Roger Federer, ---OK
+  Rank 9: distance = 0.749685, index = 23, name = Roger Federer, ---OK
+  Rank 10: distance = 0.749629, index = 23, name = Roger Federer, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #7 (Index: 300)
+label= 28 Tom Cruise
+file= ./input/Original Images/Tom Cruise/Tom Cruise_45.jpg
+  Rank 1: distance = 0.730521, index = 28, name = Tom Cruise, ---OK
+  Rank 2: distance = 0.728005, index = 28, name = Tom Cruise, ---OK
+  Rank 3: distance = 0.726950, index = 28, name = Tom Cruise, ---OK
+  Rank 4: distance = 0.725804, index = 28, name = Tom Cruise, ---OK
+  Rank 5: distance = 0.725804, index = 28, name = Tom Cruise, ---OK
+  Rank 6: distance = 0.724063, index = 28, name = Tom Cruise, ---OK
+  Rank 7: distance = 0.724063, index = 28, name = Tom Cruise, ---OK
+  Rank 8: distance = 0.724063, index = 28, name = Tom Cruise, ---OK
+  Rank 9: distance = 0.724063, index = 28, name = Tom Cruise, ---OK
+  Rank 10: distance = 0.724063, index = 28, name = Tom Cruise, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #8 (Index: 350)
+label= 22 Hugh Jackman
+file= ./input/Original Images/Hugh Jackman/Hugh Jackman_108.jpg
+  Rank 1: distance = 0.802534, index = 22, name = Hugh Jackman, ---OK
+  Rank 2: distance = 0.797167, index = 22, name = Hugh Jackman, ---OK
+  Rank 3: distance = 0.790352, index = 22, name = Hugh Jackman, ---OK
+  Rank 4: distance = 0.787207, index = 22, name = Hugh Jackman, ---OK
+  Rank 5: distance = 0.784762, index = 22, name = Hugh Jackman, ---OK
+  Rank 6: distance = 0.784647, index = 22, name = Hugh Jackman, ---OK
+  Rank 7: distance = 0.784245, index = 22, name = Hugh Jackman, ---OK
+  Rank 8: distance = 0.783680, index = 22, name = Hugh Jackman, ---OK
+  Rank 9: distance = 0.783494, index = 22, name = Hugh Jackman, ---OK
+  Rank 10: distance = 0.782628, index = 22, name = Hugh Jackman, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #9 (Index: 400)
+label= 29 Priyanka Chopra
+file= ./input/Original Images/Priyanka Chopra/Priyanka Chopra_64.jpg
+  Rank 1: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 2: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 3: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 4: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 5: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 6: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 7: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 8: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 9: distance = 0.839626, index = 29, name = Priyanka Chopra, ---OK
+  Rank 10: distance = 0.839598, index = 29, name = Priyanka Chopra, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #10 (Index: 450)
+label= 10 Billie Eilish
+file= ./input/Original Images/Billie Eilish/Billie Eilish_84.jpg
+  Rank 1: distance = 0.744727, index = 10, name = Billie Eilish, ---OK
+  Rank 2: distance = 0.739345, index = 10, name = Billie Eilish, ---OK
+  Rank 3: distance = 0.734473, index = 10, name = Billie Eilish, ---OK
+  Rank 4: distance = 0.733916, index = 10, name = Billie Eilish, ---OK
+  Rank 5: distance = 0.731001, index = 10, name = Billie Eilish, ---OK
+  Rank 6: distance = 0.724498, index = 10, name = Billie Eilish, ---OK
+  Rank 7: distance = 0.718304, index = 10, name = Billie Eilish, ---OK
+  Rank 8: distance = 0.718257, index = 10, name = Billie Eilish, ---OK
+  Rank 9: distance = 0.717923, index = 10, name = Billie Eilish, ---OK
+  Rank 10: distance = 0.717161, index = 10, name = Billie Eilish, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #11 (Index: 500)
+label= 20 Robert Downey Jr
+file= ./input/Original Images/Robert Downey Jr/Robert Downey Jr_91.jpg
+  Rank 1: distance = 0.652008, index = 20, name = Robert Downey Jr, ---OK
+  Rank 2: distance = 0.648436, index = 20, name = Robert Downey Jr, ---OK
+  Rank 3: distance = 0.646710, index = 20, name = Robert Downey Jr, ---OK
+  Rank 4: distance = 0.646710, index = 20, name = Robert Downey Jr, ---OK
+  Rank 5: distance = 0.646710, index = 20, name = Robert Downey Jr, ---OK
+  Rank 6: distance = 0.646710, index = 20, name = Robert Downey Jr, ---OK
+  Rank 7: distance = 0.646547, index = 20, name = Robert Downey Jr, ---OK
+  Rank 8: distance = 0.645456, index = 20, name = Robert Downey Jr, ---OK
+  Rank 9: distance = 0.644893, index = 20, name = Robert Downey Jr, ---OK
+  Rank 10: distance = 0.644102, index = 20, name = Robert Downey Jr, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #12 (Index: 550)
+label= 8 Ellen Degeneres
+file= ./input/Original Images/Ellen Degeneres/Ellen Degeneres_6.jpg
+  Rank 1: distance = 0.826664, index = 8, name = Ellen Degeneres, ---OK
+  Rank 2: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 3: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 4: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 5: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 6: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 7: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 8: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 9: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Rank 10: distance = 0.826663, index = 8, name = Ellen Degeneres, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #13 (Index: 600)
+label= 16 Alexandra Daddario
+file= ./input/Original Images/Alexandra Daddario/Alexandra Daddario_52.jpg
+  Rank 1: distance = 0.772878, index = 16, name = Alexandra Daddario, ---OK
+  Rank 2: distance = 0.767655, index = 16, name = Alexandra Daddario, ---OK
+  Rank 3: distance = 0.764736, index = 16, name = Alexandra Daddario, ---OK
+  Rank 4: distance = 0.763074, index = 16, name = Alexandra Daddario, ---OK
+  Rank 5: distance = 0.760262, index = 16, name = Alexandra Daddario, ---OK
+  Rank 6: distance = 0.760262, index = 16, name = Alexandra Daddario, ---OK
+  Rank 7: distance = 0.760262, index = 16, name = Alexandra Daddario, ---OK
+  Rank 8: distance = 0.760262, index = 16, name = Alexandra Daddario, ---OK
+  Rank 9: distance = 0.760083, index = 16, name = Alexandra Daddario, ---OK
+  Rank 10: distance = 0.759598, index = 16, name = Alexandra Daddario, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #14 (Index: 650)
+label= 12 Dwayne Johnson
+file= ./input/Original Images/Dwayne Johnson/Dwayne Johnson_34.jpg
+  Rank 1: distance = 0.686163, index = 12, name = Dwayne Johnson, ---OK
+  Rank 2: distance = 0.679603, index = 12, name = Dwayne Johnson, ---OK
+  Rank 3: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 4: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 5: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 6: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 7: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 8: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 9: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Rank 10: distance = 0.673820, index = 12, name = Dwayne Johnson, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #15 (Index: 700)
+label= 13 Amitabh Bachchan
+file= ./input/Original Images/Amitabh Bachchan/Amitabh Bachchan_59.jpg
+  Rank 1: distance = 0.860629, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 2: distance = 0.860093, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 3: distance = 0.855109, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 4: distance = 0.855045, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 5: distance = 0.854861, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 6: distance = 0.853381, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 7: distance = 0.853381, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 8: distance = 0.853381, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 9: distance = 0.853381, index = 13, name = Amitabh Bachchan, ---OK
+  Rank 10: distance = 0.853381, index = 13, name = Amitabh Bachchan, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #16 (Index: 750)
+label= 15 Henry Cavill
+file= ./input/Original Images/Henry Cavill/Henry Cavill_42.jpg
+  Rank 1: distance = 0.726765, index = 15, name = Henry Cavill, ---OK
+  Rank 2: distance = 0.726765, index = 15, name = Henry Cavill, ---OK
+  Rank 3: distance = 0.726765, index = 15, name = Henry Cavill, ---OK
+  Rank 4: distance = 0.726765, index = 15, name = Henry Cavill, ---OK
+  Rank 5: distance = 0.725669, index = 15, name = Henry Cavill, ---OK
+  Rank 6: distance = 0.725649, index = 15, name = Henry Cavill, ---OK
+  Rank 7: distance = 0.724646, index = 15, name = Henry Cavill, ---OK
+  Rank 8: distance = 0.724406, index = 15, name = Henry Cavill, ---OK
+  Rank 9: distance = 0.724086, index = 15, name = Henry Cavill, ---OK
+  Rank 10: distance = 0.724054, index = 15, name = Henry Cavill, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #17 (Index: 800)
+label= 2 Charlize Theron
+file= ./input/Original Images/Charlize Theron/Charlize Theron_73.jpg
+  Rank 1: distance = 0.705374, index = 2, name = Charlize Theron, ---OK
+  Rank 2: distance = 0.702580, index = 2, name = Charlize Theron, ---OK
+  Rank 3: distance = 0.698125, index = 2, name = Charlize Theron, ---OK
+  Rank 4: distance = 0.695094, index = 2, name = Charlize Theron, ---OK
+  Rank 5: distance = 0.693442, index = 2, name = Charlize Theron, ---OK
+  Rank 6: distance = 0.691286, index = 2, name = Charlize Theron, ---OK
+  Rank 7: distance = 0.690026, index = 2, name = Charlize Theron, ---OK
+  Rank 8: distance = 0.688165, index = 2, name = Charlize Theron, ---OK
+  Rank 9: distance = 0.687732, index = 2, name = Charlize Theron, ---OK
+  Rank 10: distance = 0.686486, index = 2, name = Charlize Theron, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #18 (Index: 850)
+label= 1 Natalie Portman
+file= ./input/Original Images/Natalie Portman/Natalie Portman_36.jpg
+  Rank 1: distance = 0.816710, index = 1, name = Natalie Portman, ---OK
+  Rank 2: distance = 0.809351, index = 1, name = Natalie Portman, ---OK
+  Rank 3: distance = 0.807084, index = 1, name = Natalie Portman, ---OK
+  Rank 4: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 5: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 6: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 7: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 8: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 9: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Rank 10: distance = 0.804728, index = 1, name = Natalie Portman, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #19 (Index: 900)
+label= 21 Courtney Cox
+file= ./input/Original Images/Courtney Cox/Courtney Cox_77.jpg
+  Rank 1: distance = 0.715501, index = 21, name = Courtney Cox, ---OK
+  Rank 2: distance = 0.713908, index = 21, name = Courtney Cox, ---OK
+  Rank 3: distance = 0.713882, index = 21, name = Courtney Cox, ---OK
+  Rank 4: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 5: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 6: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 7: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 8: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 9: distance = 0.711051, index = 21, name = Courtney Cox, ---OK
+  Rank 10: distance = 0.710817, index = 21, name = Courtney Cox, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #20 (Index: 950)
+label= 25 Brad Pitt
+file= ./input/Original Images/Brad Pitt/Brad Pitt_109.jpg
+  Rank 1: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 2: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 3: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 4: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 5: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 6: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 7: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 8: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 9: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Rank 10: distance = 0.852611, index = 25, name = Brad Pitt, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #21 (Index: 1000)
+label= 25 Brad Pitt
+file= ./input/Original Images/Brad Pitt/Brad Pitt_47.jpg
+  Rank 1: distance = 0.708529, index = 25, name = Brad Pitt, ---OK
+  Rank 2: distance = 0.699100, index = 25, name = Brad Pitt, ---OK
+  Rank 3: distance = 0.695298, index = 25, name = Brad Pitt, ---OK
+  Rank 4: distance = 0.679995, index = 25, name = Brad Pitt, ---OK
+  Rank 5: distance = 0.677491, index = 25, name = Brad Pitt, ---OK
+  Rank 6: distance = 0.673977, index = 25, name = Brad Pitt, ---OK
+  Rank 7: distance = 0.672429, index = 25, name = Brad Pitt, ---OK
+  Rank 8: distance = 0.670829, index = 25, name = Brad Pitt, ---OK
+  Rank 9: distance = 0.669280, index = 25, name = Brad Pitt, ---OK
+  Rank 10: distance = 0.669099, index = 25, name = Brad Pitt, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #22 (Index: 1050)
+label= 14 Akshay Kumar
+file= ./input/Original Images/Akshay Kumar/Akshay Kumar_29.jpg
+  Rank 1: distance = 0.556847, index = 14, name = Akshay Kumar, ---OK
+  Rank 2: distance = 0.554336, index = 14, name = Akshay Kumar, ---OK
+  Rank 3: distance = 0.553874, index = 14, name = Akshay Kumar, ---OK
+  Rank 4: distance = 0.551307, index = 14, name = Akshay Kumar, ---OK
+  Rank 5: distance = 0.548948, index = 14, name = Akshay Kumar, ---OK
+  Rank 6: distance = 0.548318, index = 14, name = Akshay Kumar, ---OK
+  Rank 7: distance = 0.547641, index = 14, name = Akshay Kumar, ---OK
+  Rank 8: distance = 0.547569, index = 14, name = Akshay Kumar, ---OK
+  Rank 9: distance = 0.546433, index = 14, name = Akshay Kumar, ---OK
+  Rank 10: distance = 0.545074, index = 14, name = Akshay Kumar, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #23 (Index: 1100)
+label= 7 Vijay Deverakonda
+file= ./input/Original Images/Vijay Deverakonda/Vijay Deverakonda_19.jpg
+  Rank 1: distance = 0.743773, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 2: distance = 0.738151, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 3: distance = 0.737586, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 4: distance = 0.721179, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 5: distance = 0.719906, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 6: distance = 0.717329, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 7: distance = 0.715091, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 8: distance = 0.714436, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 9: distance = 0.713760, index = 7, name = Vijay Deverakonda, ---OK
+  Rank 10: distance = 0.713503, index = 7, name = Vijay Deverakonda, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #24 (Index: 1150)
+label= 5 Andy Samberg
+file= ./input/Original Images/Andy Samberg/Andy Samberg_23.jpg
+  Rank 1: distance = 0.722485, index = 5, name = Andy Samberg, ---OK
+  Rank 2: distance = 0.720065, index = 5, name = Andy Samberg, ---OK
+  Rank 3: distance = 0.717840, index = 5, name = Andy Samberg, ---OK
+  Rank 4: distance = 0.715456, index = 5, name = Andy Samberg, ---OK
+  Rank 5: distance = 0.711479, index = 5, name = Andy Samberg, ---OK
+  Rank 6: distance = 0.708242, index = 5, name = Andy Samberg, ---OK
+  Rank 7: distance = 0.707402, index = 5, name = Andy Samberg, ---OK
+  Rank 8: distance = 0.703228, index = 5, name = Andy Samberg, ---OK
+  Rank 9: distance = 0.702611, index = 5, name = Andy Samberg, ---OK
+  Rank 10: distance = 0.698490, index = 5, name = Andy Samberg, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #25 (Index: 1200)
+label= 19 Lisa Kudrow
+file= ./input/Original Images/Lisa Kudrow/Lisa Kudrow_51.jpg
+  Rank 1: distance = 0.746500, index = 19, name = Lisa Kudrow, ---OK
+  Rank 2: distance = 0.746500, index = 19, name = Lisa Kudrow, ---OK
+  Rank 3: distance = 0.744843, index = 19, name = Lisa Kudrow, ---OK
+  Rank 4: distance = 0.740571, index = 19, name = Lisa Kudrow, ---OK
+  Rank 5: distance = 0.739380, index = 19, name = Lisa Kudrow, ---OK
+  Rank 6: distance = 0.737907, index = 19, name = Lisa Kudrow, ---OK
+  Rank 7: distance = 0.737888, index = 19, name = Lisa Kudrow, ---OK
+  Rank 8: distance = 0.737888, index = 19, name = Lisa Kudrow, ---OK
+  Rank 9: distance = 0.737888, index = 19, name = Lisa Kudrow, ---OK
+  Rank 10: distance = 0.737888, index = 19, name = Lisa Kudrow, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+Test #26 (Index: 1250)
+label= 6 Elizabeth Olsen
+file= ./input/Original Images/Elizabeth Olsen/Elizabeth Olsen_35.jpg
+  Rank 1: distance = 0.788129, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 2: distance = 0.787161, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 3: distance = 0.784489, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 4: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 5: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 6: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 7: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 8: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 9: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Rank 10: distance = 0.784003, index = 6, name = Elizabeth Olsen, ---OK
+  Top-1 Accuracy: ✓
+  Correct matches in Top-10: 10/10
+--------------------------------------------------
+
+============================================================
+FINAL STATISTICS
+============================================================
+Total tests conducted: 26
+Top-1 correct predictions: 26
+Top-1 accuracy: 1.0000 (100.00%)
+Top-1 accuracy: 1.0000 (100.00%)
+Top-3 accuracy: 1.0000 (100.00%)
+Top-5 accuracy: 1.0000 (100.00%)
+Top-10 accuracy: 1.0000 (100.00%)
+
+Per-person accuracy:
+  Akshay Kumar: 1/1 = 1.0000
+  Alexandra Daddario: 1/1 = 1.0000
+  Amitabh Bachchan: 1/1 = 1.0000
+  Andy Samberg: 1/1 = 1.0000
+  Billie Eilish: 1/1 = 1.0000
+  Brad Pitt: 2/2 = 1.0000
+  Charlize Theron: 1/1 = 1.0000
+  Claire Holt: 1/1 = 1.0000
+  Courtney Cox: 1/1 = 1.0000
+  Dwayne Johnson: 1/1 = 1.0000
+  Elizabeth Olsen: 1/1 = 1.0000
+  Ellen Degeneres: 1/1 = 1.0000
+  Henry Cavill: 1/1 = 1.0000
+  Hrithik Roshan: 1/1 = 1.0000
+  Hugh Jackman: 1/1 = 1.0000
+  Jessica Alba: 2/2 = 1.0000
+  Kashyap: 1/1 = 1.0000
+  Lisa Kudrow: 1/1 = 1.0000
+  Natalie Portman: 1/1 = 1.0000
+  Priyanka Chopra: 1/1 = 1.0000
+  Robert Downey Jr: 1/1 = 1.0000
+  Roger Federer: 1/1 = 1.0000
+  Tom Cruise: 1/1 = 1.0000
+  Vijay Deverakonda: 1/1 = 1.0000

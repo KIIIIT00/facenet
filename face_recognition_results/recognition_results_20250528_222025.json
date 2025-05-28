@@ -1,0 +1,132 @@
+{
+  "experiment_info": {
+    "timestamp": "20250528_222025",
+    "total_files": 2562,
+    "train_files": 1281,
+    "test_files": 1281,
+    "unique_people": 31,
+    "faiss_config": {
+      "dim": 512,
+      "nlist": 10,
+      "m": 32,
+      "nbits": 5
+    }
+  },
+  "overall_statistics": {
+    "total_tests": 26,
+    "top1_accuracy": 1.0,
+    "top3_accuracy": 1.0,
+    "top5_accuracy": 1.0,
+    "top10_accuracy": 1.0
+  },
+  "per_person_stats": {
+    "Claire Holt": {
+      "total": 1,
+      "correct": 1
+    },
+    "Hrithik Roshan": {
+      "total": 1,
+      "correct": 1
+    },
+    "Kashyap": {
+      "total": 1,
+      "correct": 1
+    },
+    "Jessica Alba": {
+      "total": 2,
+      "correct": 2
+    },
+    "Roger Federer": {
+      "total": 1,
+      "correct": 1
+    },
+    "Tom Cruise": {
+      "total": 1,
+      "correct": 1
+    },
+    "Hugh Jackman": {
+      "total": 1,
+      "correct": 1
+    },
+    "Priyanka Chopra": {
+      "total": 1,
+      "correct": 1
+    },
+    "Billie Eilish": {
+      "total": 1,
+      "correct": 1
+    },
+    "Robert Downey Jr": {
+      "total": 1,
+      "correct": 1
+    },
+    "Ellen Degeneres": {
+      "total": 1,
+      "correct": 1
+    },
+    "Alexandra Daddario": {
+      "total": 1,
+      "correct": 1
+    },
+    "Dwayne Johnson": {
+      "total": 1,
+      "correct": 1
+    },
+    "Amitabh Bachchan": {
+      "total": 1,
+      "correct": 1
+    },
+    "Henry Cavill": {
+      "total": 1,
+      "correct": 1
+    },
+    "Charlize Theron": {
+      "total": 1,
+      "correct": 1
+    },
+    "Natalie Portman": {
+      "total": 1,
+      "correct": 1
+    },
+    "Courtney Cox": {
+      "total": 1,
+      "correct": 1
+    },
+    "Brad Pitt": {
+      "total": 2,
+      "correct": 2
+    },
+    "Akshay Kumar": {
+      "total": 1,
+      "correct": 1
+    },
+    "Vijay Deverakonda": {
+      "total": 1,
+      "correct": 1
+    },
+    "Andy Samberg": {
+      "total": 1,
+      "correct": 1
+    },
+    "Lisa Kudrow": {
+      "total": 1,
+      "correct": 1
+    },
+    "Elizabeth Olsen": {
+      "total": 1,
+      "correct": 1
+    }
+  },
+  "detailed_results": [
+    {
+      "test_index": 0,
+      "test_label": 11,
+      "test_name": "Claire Holt",
+      "test_file": "./input/Original Images/Claire Holt/Claire Holt_76.jpg",
+      "predictions": [
+        {
+          "rank": 1,
+          "distance": 0.7589696645736694,
+          "predicted_id": 11,
+          "predicted_name": "Claire Holt",
+          "is_correct": 
