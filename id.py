@@ -71,182 +71,6 @@ def calculate_distances_to_person_dataset(test_embedding, person_train_files, mt
     
     return distances, valid_files
 
-def create_person_dataset_visualization(test_results, person_name, person_id, id2name, name2id, 
-                                      train_files, train_labels, mtcnn, resnet, device, output_dir):
-    """
-    特定人物のテスト結果と、その人物の学習データセット全体との距離を可視化
-    """
-    person_tests = [r for r in test_results if r['test_name'] == person_name]
-    
-    if not person_tests:
-        return
-    
-    # その人物の学習用ファイルを取得
-    person_train_files = get_person_train_files(person_name, train_files, train_labels, id2name, name2id)
-    
-    if not person_train_files:
-        print(f"No training files found for {person_name}")
-        return
-    
-    # テストケースが1つしかない場合は、学習データセット内の相互類似度分析を行う
-    if len(person_tests) == 1:
-        create_intra_dataset_similarity_analysis(person_name, person_id, person_train_files, 
-                                                mtcnn, resnet, device, output_dir)
-        test_idx = 0
-        test_result = person_tests[0]
-    else:
-        # 複数のテストケースがある場合は元の処理
-        for test_idx, test_result in enumerate(person_tests):
-        print(f"Creating visualization for {person_name} - Test {test_idx + 1}")
-        
-        # テスト画像の特徴量を抽出
-        try:
-            test_img = Image.open(test_result['test_file'])
-            test_img_tensor = mtcnn(test_img)
-            
-            if test_img_tensor is None:
-                print(f"Could not extract face from test image: {test_result['test_file']}")
-                continue
-                
-            test_img_tensor = test_img_tensor.to(device)
-            test_embedding = resnet(test_img_tensor.unsqueeze(0))
-            test_embedding_np = test_embedding.cpu().detach().numpy()
-            
-        except Exception as e:
-            print(f"Error processing test image {test_result['test_file']}: {e}")
-            continue
-        
-        # その人物の学習データセット各画像との距離を計算
-        distances, valid_train_files = calculate_distances_to_person_dataset(
-            test_embedding_np, person_train_files, mtcnn, resnet, device
-        )
-        
-        if not distances:
-            print(f"No valid training images found for {person_name}")
-            continue
-        
-        # 距離でソート（降順：高い類似度順）
-        sorted_indices = np.argsort(distances)[::-1]
-        
-        # 可視化を作成
-        n_train_images = len(valid_train_files)
-        n_cols = min(6, n_train_images)  # 最大6列
-        n_rows = max(2, (n_train_images + n_cols - 1) // n_cols + 1)  # テスト画像用に1行追加
-        
-        fig = plt.figure(figsize=(4 * n_cols, 4 * n_rows))
-        fig.suptitle(f'{person_name} - Test Case {test_idx + 1}\nDataset Distance Analysis', 
-                    fontsize=16, fontweight='bold')
-        
-        # テスト画像を上段中央に表示
-        ax_test = plt.subplot(n_rows, n_cols, n_cols // 2 + 1)
-        ax_test.imshow(test_img)
-        ax_test.set_title(f'TEST IMAGE\n{person_name}\nFile: {os.path.basename(test_result["test_file"])}', 
-                         fontsize=12, fontweight='bold', color='blue')
-        ax_test.axis('off')
-        
-        # 緑の太い枠で囲む
-        for spine in ax_test.spines.values():
-            spine.set_edgecolor('blue')
-            spine.set_linewidth(4)
-        
-        # 統計情報を表示
-        if len(distances) > 0:
-            max_dist = max(distances)
-            min_dist = min(distances)
-            avg_dist = np.mean(distances)
-            
-            stats_text = f'Dataset Statistics:\n' \
-                        f'Max Distance: {max_dist:.4f}\n' \
-                        f'Min Distance: {min_dist:.4f}\n' \
-                        f'Avg Distance: {avg_dist:.4f}\n' \
-                        f'Total Images: {len(distances)}'
-            
-            ax_stats = plt.subplot(n_rows, n_cols, n_cols)
-            ax_stats.text(0.1, 0.5, stats_text, transform=ax_stats.transAxes, 
-                         fontsize=10, verticalalignment='center',
-                         bbox=dict(boxstyle="round,pad=0.3", facecolor='lightgreen', alpha=0.7))
-            ax_stats.set_title('Statistics', fontweight='bold')
-            ax_stats.axis('off')
-        
-        # 学習データセットの各画像を距離順に表示
-        for display_idx, sorted_idx in enumerate(sorted_indices):
-            if display_idx >= n_cols * (n_rows - 1):  # 表示可能な数を超えた場合
-                break
-                
-            # 2行目以降に配置
-            row = (display_idx // n_cols) + 1
-            col = display_idx % n_cols
-            ax_idx = row * n_cols + col + 1
-            
-            ax = plt.subplot(n_rows, n_cols, ax_idx)
-            
-            train_file = valid_train_files[sorted_idx]
-            distance = distances[sorted_idx]
-            
-            try:
-                train_img = Image.open(train_file)
-                ax.imshow(train_img)
-                
-                # 距離に応じた色分け
-                if distance > avg_dist:
-                    border_color = 'green'
-                    title_color = 'green'
-                else:
-                    border_color = 'orange'
-                    title_color = 'orange'
-                
-                # 最高・最低距離の場合は特別な色
-                if distance == max_dist:
-                    border_color = 'darkgreen'
-                    title_color = 'darkgreen'
-                elif distance == min_dist:
-                    border_color = 'red'
-                    title_color = 'red'
-                
-                # 枠を設定
-                for spine in ax.spines.values():
-                    spine.set_edgecolor(border_color)
-                    spine.set_linewidth(3)
-                
-                # タイトル設定
-                rank_in_dataset = display_idx + 1
-                filename = os.path.basename(train_file)
-                title_text = f'Rank {rank_in_dataset}\nDist: {distance:.4f}\n{filename}'
-                
-                ax.set_title(title_text, fontsize=9, color=title_color, fontweight='bold')
-                
-            except Exception as e:
-                ax.text(0.5, 0.5, f'Image Load Error\n{str(e)[:50]}...', 
-                       ha='center', va='center', transform=ax.transAxes, fontsize=8)
-                ax.set_title(f'Error\nDist: {distance:.4f}', fontsize=9, color='red')
-            
-            ax.axis('off')
-        
-        # FAISSでの予測結果も表示（比較用）
-        faiss_text = "FAISS Top-10 Results:\n"
-        for i, pred in enumerate(test_result['predictions'][:5]):  # Top-5のみ表示
-            status = "✓" if pred['is_correct'] else "✗"
-            faiss_text += f"{i+1}. {pred['predicted_name']} ({pred['distance']:.4f}) {status}\n"
-        
-        # 最後の位置に表示
-        if n_cols * n_rows > len(sorted_indices) + n_cols:
-            ax_faiss = plt.subplot(n_rows, n_cols, n_cols * n_rows)
-            ax_faiss.text(0.1, 0.9, faiss_text, transform=ax_faiss.transAxes, 
-                         fontsize=9, verticalalignment='top',
-                         bbox=dict(boxstyle="round,pad=0.3", facecolor='lightblue', alpha=0.7))
-            ax_faiss.set_title('FAISS Comparison', fontweight='bold')
-            ax_faiss.axis('off')
-        
-        plt.tight_layout()
-        
-        # ファイル名を生成して保存
-        safe_person_name = "".join(c for c in person_name if c.isalnum() or c in (' ', '-', '_')).rstrip()
-        filename = f"{safe_person_name}_dataset_analysis_test_{test_idx+1}.png"
-        filepath = os.path.join(output_dir, filename)
-        
-        plt.savefig(filepath, dpi=300, bbox_inches='tight', facecolor='white')
-        plt.close(fig)
-        
 def create_intra_dataset_similarity_analysis(person_name, person_id, person_train_files, 
                                             mtcnn, resnet, device, output_dir):
     """
@@ -439,6 +263,183 @@ def create_intra_dataset_similarity_analysis(person_name, person_id, person_trai
     print(f"Saved intra-dataset similarity analysis: {filepath}")
     
     return True
+
+def create_person_dataset_visualization(test_results, person_name, person_id, id2name, name2id, 
+                                      train_files, train_labels, mtcnn, resnet, device, output_dir):
+    """
+    特定人物のテスト結果と、その人物の学習データセット全体との距離を可視化
+    """
+    person_tests = [r for r in test_results if r['test_name'] == person_name]
+    
+    if not person_tests:
+        return
+    
+    # その人物の学習用ファイルを取得
+    person_train_files = get_person_train_files(person_name, train_files, train_labels, id2name, name2id)
+    
+    if not person_train_files:
+        print(f"No training files found for {person_name}")
+        return
+    
+    # テストケースが1つしかない場合は、学習データセット内の相互類似度分析を行う
+    if len(person_tests) == 1:
+        create_intra_dataset_similarity_analysis(person_name, person_id, person_train_files, 
+                                                mtcnn, resnet, device, output_dir)
+        return  # intra-dataset分析のみ実行
+    
+    # 複数のテストケースがある場合は通常の処理
+    for test_idx, test_result in enumerate(person_tests):
+        print(f"Creating visualization for {person_name} - Test {test_idx + 1}")
+        
+        # テスト画像の特徴量を抽出
+        try:
+            test_img = Image.open(test_result['test_file'])
+            test_img_tensor = mtcnn(test_img)
+            
+            if test_img_tensor is None:
+                print(f"Could not extract face from test image: {test_result['test_file']}")
+                continue
+                
+            test_img_tensor = test_img_tensor.to(device)
+            test_embedding = resnet(test_img_tensor.unsqueeze(0))
+            test_embedding_np = test_embedding.cpu().detach().numpy()
+            
+        except Exception as e:
+            print(f"Error processing test image {test_result['test_file']}: {e}")
+            continue
+        
+        # その人物の学習データセット各画像との距離を計算
+        distances, valid_train_files = calculate_distances_to_person_dataset(
+            test_embedding_np, person_train_files, mtcnn, resnet, device
+        )
+        
+        if not distances:
+            print(f"No valid training images found for {person_name}")
+            continue
+        
+        # 距離でソート（降順：高い類似度順）
+        sorted_indices = np.argsort(distances)[::-1]
+        
+        # 可視化を作成
+        n_train_images = len(valid_train_files)
+        n_cols = min(6, n_train_images)  # 最大6列
+        n_rows = max(2, (n_train_images + n_cols - 1) // n_cols + 1)  # テスト画像用に1行追加
+        
+        fig = plt.figure(figsize=(4 * n_cols, 4 * n_rows))
+        fig.suptitle(f'{person_name} - Test Case {test_idx + 1}\nDataset Distance Analysis', 
+                    fontsize=16, fontweight='bold')
+        
+        # テスト画像を上段中央に表示
+        ax_test = plt.subplot(n_rows, n_cols, n_cols // 2 + 1)
+        ax_test.imshow(test_img)
+        ax_test.set_title(f'TEST IMAGE\n{person_name}\nFile: {os.path.basename(test_result["test_file"])}', 
+                         fontsize=12, fontweight='bold', color='blue')
+        ax_test.axis('off')
+        
+        # 青の太い枠で囲む
+        for spine in ax_test.spines.values():
+            spine.set_edgecolor('blue')
+            spine.set_linewidth(4)
+        
+        # 統計情報を表示
+        if len(distances) > 0:
+            max_dist = max(distances)
+            min_dist = min(distances)
+            avg_dist = np.mean(distances)
+            
+            stats_text = f'Dataset Statistics:\n' \
+                        f'Max Distance: {max_dist:.4f}\n' \
+                        f'Min Distance: {min_dist:.4f}\n' \
+                        f'Avg Distance: {avg_dist:.4f}\n' \
+                        f'Total Images: {len(distances)}'
+            
+            ax_stats = plt.subplot(n_rows, n_cols, n_cols)
+            ax_stats.text(0.1, 0.5, stats_text, transform=ax_stats.transAxes, 
+                         fontsize=10, verticalalignment='center',
+                         bbox=dict(boxstyle="round,pad=0.3", facecolor='lightgreen', alpha=0.7))
+            ax_stats.set_title('Statistics', fontweight='bold')
+            ax_stats.axis('off')
+        
+        # 学習データセットの各画像を距離順に表示
+        for display_idx, sorted_idx in enumerate(sorted_indices):
+            if display_idx >= n_cols * (n_rows - 1):  # 表示可能な数を超えた場合
+                break
+                
+            # 2行目以降に配置
+            row = (display_idx // n_cols) + 1
+            col = display_idx % n_cols
+            ax_idx = row * n_cols + col + 1
+            
+            ax = plt.subplot(n_rows, n_cols, ax_idx)
+            
+            train_file = valid_train_files[sorted_idx]
+            distance = distances[sorted_idx]
+            
+            try:
+                train_img = Image.open(train_file)
+                ax.imshow(train_img)
+                
+                # 距離に応じた色分け
+                if distance > avg_dist:
+                    border_color = 'green'
+                    title_color = 'green'
+                else:
+                    border_color = 'orange'
+                    title_color = 'orange'
+                
+                # 最高・最低距離の場合は特別な色
+                if distance == max_dist:
+                    border_color = 'darkgreen'
+                    title_color = 'darkgreen'
+                elif distance == min_dist:
+                    border_color = 'red'
+                    title_color = 'red'
+                
+                # 枠を設定
+                for spine in ax.spines.values():
+                    spine.set_edgecolor(border_color)
+                    spine.set_linewidth(3)
+                
+                # タイトル設定
+                rank_in_dataset = display_idx + 1
+                filename = os.path.basename(train_file)
+                title_text = f'Rank {rank_in_dataset}\nDist: {distance:.4f}\n{filename}'
+                
+                ax.set_title(title_text, fontsize=9, color=title_color, fontweight='bold')
+                
+            except Exception as e:
+                ax.text(0.5, 0.5, f'Image Load Error\n{str(e)[:50]}...', 
+                       ha='center', va='center', transform=ax.transAxes, fontsize=8)
+                ax.set_title(f'Error\nDist: {distance:.4f}', fontsize=9, color='red')
+            
+            ax.axis('off')
+        
+        # FAISSでの予測結果も表示（比較用）
+        faiss_text = "FAISS Top-10 Results:\n"
+        for i, pred in enumerate(test_result['predictions'][:5]):  # Top-5のみ表示
+            status = "✓" if pred['is_correct'] else "✗"
+            faiss_text += f"{i+1}. {pred['predicted_name']} ({pred['distance']:.4f}) {status}\n"
+        
+        # 最後の位置に表示
+        if n_cols * n_rows > len(sorted_indices) + n_cols:
+            ax_faiss = plt.subplot(n_rows, n_cols, n_cols * n_rows)
+            ax_faiss.text(0.1, 0.9, faiss_text, transform=ax_faiss.transAxes, 
+                         fontsize=9, verticalalignment='top',
+                         bbox=dict(boxstyle="round,pad=0.3", facecolor='lightblue', alpha=0.7))
+            ax_faiss.set_title('FAISS Comparison', fontweight='bold')
+            ax_faiss.axis('off')
+        
+        plt.tight_layout()
+        
+        # ファイル名を生成して保存
+        safe_person_name = "".join(c for c in person_name if c.isalnum() or c in (' ', '-', '_')).rstrip()
+        filename = f"{safe_person_name}_dataset_analysis_test_{test_idx+1}.png"
+        filepath = os.path.join(output_dir, filename)
+        
+        plt.savefig(filepath, dpi=300, bbox_inches='tight', facecolor='white')
+        plt.close(fig)
+        
+        print(f"Saved dataset visualization: {filepath}")
 
 def create_distance_distribution_plot(test_results, id2name, name2id, train_files, train_labels, 
                                      mtcnn, resnet, device, output_dir):
